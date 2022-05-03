@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  webapp:
+    image: cs
+  server:
+    image: csgo
+    ports:
+      - 3000:3000
+  nginx: 
+    image: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports: 
+      - 80:80
+    environment:
+         - NGINX_HOST=foobar.com
+         - NGINX_PORT=80
+  cloudflare-ddns:
+    image: timothyjmiller/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    security_opt:
+      - no-new-privileges:true
+    network_mode: "host"
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./cloudflare/config.json:/config.json
+    restart: unless-stopped

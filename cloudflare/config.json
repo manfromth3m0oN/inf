@@ -1,0 +1,17 @@
+{
+  "cloudflare": [
+    {
+      "authentication": {
+        "api_token": "Bf0AnF7PY90poO765kun3ev1FgvFEVixpFTsRL9z"
+      },
+      "zone_id": "c84a01d2c1aeeefef944232b3d50ff55",
+      "subdomains": [
+        "chanshare"
+      ],
+      "proxied": true
+    }
+  ],
+  "a": true,
+  "aaaa": true,
+  "purgeUnknownRecords": false
+}
